@@ -1,0 +1,21 @@
+{
+	"payload":{
+		"login":{
+	"username":"feb2025.vanitha@teckarch.com",
+	"password":"Admin123"
+				},
+				"addData":{
+				 "accountno": "TA-teka002",
+        "departmentno": "2",
+        "salary": "23454324",
+        "pincode": "675328",
+        "userid": "xlqBI2bMTgs2WYDkMnQo",
+        "id": "BLzRhcC38oRhfVbCEFfy"
+				}
+	},
+	"statusCode":{
+		"loginRes":201,
+		"getUserRes":200
+	
+	}
+}

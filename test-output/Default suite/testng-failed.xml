@@ -6,8 +6,8 @@
       <class name="test_TRY.TekArckApi">
         <methods>
           <include name="init"/>
-          <include name="updateUser"/>
           <include name="loginTest"/>
+          <include name="deleteUser"/>
         </methods>
       </class> <!-- test_TRY.TekArckApi -->
     </classes>

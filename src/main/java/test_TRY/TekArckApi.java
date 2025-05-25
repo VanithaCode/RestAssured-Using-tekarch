@@ -1,7 +1,5 @@
 package test_TRY;
 
-
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -115,51 +113,50 @@ public class TekArckApi {
 		
         	System.out.println("addData Extracted Response: " + addData.asString());
     }
-	
-	@Test(priority = 4,dependsOnMethods = "loginTest")
-	public void updateUser() {
-    	System.out.println("*********** UPDATE USER *************" );
-		
-		Gson gson = new Gson();
-		
-		
-		
-		Map<String, Object> foundData = getUser(newInputData.get("accountno"));
-		
-		foundData.put("salary", "12111133");
 
+	
+//	@Test(priority = 4,dependsOnMethods = "loginTest")
+//	public void updateUser() {
+//    	System.out.println("*********** UPDATE USER *************" );
+//		Gson gson = new Gson();
+//		Map<String, Object> foundData = getUser(newInputData.get("accountno"));
+//		foundData.put("salary", "12111133");
+//		String requestJson = gson.toJson(foundData);
+//		System.out.println("UpdateUser: " + requestJson);
+//		
+//		// Update 
+//		Response update = RestAssured.given().header("Content-Type","application/json")
+//				.header("Token",token)
+//				.body(requestJson)
+//				.when()
+//				.put("updateData")
+//				.then()
+//	            .log().all() // Logs request and response details
+//				.statusCode(200).extract().response();
+//		
+//		
+//		getUser(newInputData.get("accountno"));
+//		
+//	}
+	@Test(priority = 5,dependsOnMethods = "loginTest")
+	public void deleteUser()
+	{
+		System.out.println("*********** Delete USER *************" );
+		Gson gson = new Gson();
+		Map<String, Object> foundData = getUser(newInputData.get("accountno"));
+		foundData.put("salary", "12111133");
 		String requestJson = gson.toJson(foundData);
-		System.out.println("UpdateUser: " + requestJson);
-		
-		// Update 
-		Response update = RestAssured.given().header("Content-Type","application/json")
+		System.out.println("DeleteUser: " + requestJson);
+		Response delete = RestAssured.given().header("Content-Type","application/json")
 				.header("Token",token)
 				.body(requestJson)
 				.when()
-				.put("updateData")
+				.delete("deleteData")
 				.then()
 	            .log().all() // Logs request and response details
 				.statusCode(200).extract().response();
 		
-		
-		getUser(newInputData.get("accountno"));
-		
-//		printResponseLog(update);
-		
-//		getUserTest("v5Jn7AfQjyK3WVGglmJp");
-		
-//		  {
-//		        "accountno": "TA-5678333",
-//		        "departmentno": "4",
-//		        "salary": "45678",
-//		        "pincode": "234567",
-//		        "userid": "taGX4XQQfXD3Z76sI1Xn",
-//		        "id": "v5Jn7AfQjyK3WVGglmJp"
-//		    }
-	}
-	public void deleteUser()
-	{
-		//Response del
+	
 	}
 	
 	
